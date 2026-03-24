@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-primary: #1b263b;   /* Azul oscuro */
+  --color-secondary: #415a77; /* Azul grisáceo */
+  --color-accent: #778da9;    /* Azul claro */
+  --color-bg: #f9f7f2;        /* Beige */
+  --color-white: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --header-height: 80px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg); /* Aplicamos el beige al fondo */
+  line-height: 1.5;
+  margin: 0;
+}
+
+.header-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(
+    --color-bg
+  ); /* Cambiado de blanco a beige para que sea uniforme */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+.logo-heart {
+  height: 45px;
+  width: auto;
+  display: block;
+  animation: heartbeat 1.5s infinite;
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nav-menu a:hover {
+  opacity: 0.7;
+}
+
+main {
+  margin-top: var(--header-height);
+  padding: var(--spacing-lg) 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.hamburger {
+  display: none; 
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-bg); 
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+@keyframes heartbeat {
+  0%,
+  28%,
+  70%,
+  100% {
+    transform: scale(1);
+  }
+  14%,
+  42% {
+    transform: scale(1.1);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Aparece en móvil */
+  }
+  .nav-menu {
+    display: none; /* Desaparece el menú de texto */
+  }
+}
