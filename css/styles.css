@@ -1,41 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --color-primary: #1b263b;   /* Azul oscuro */
-  --color-secondary: #415a77; /* Azul grisáceo */
-  --color-accent: #778da9;    /* Azul claro */
-  --color-bg: #f9f7f2;        /* Beige */
-  --color-white: #ffffff;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-primary: #1b263b;
+  --color-secondary: #415a77; 
+  --color-accent: #be2edd; /* Lila DevelopFlix */
+  --color-text: #1b263b;      
+  --color-bg: #f9f7f2;
   --header-height: 80px;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
   --spacing-md: 24px;
   --spacing-lg: 48px;
-  --transition: all 0.3s ease;
-  --border-radius: 8px;
-  --weight-light: 300;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-bold: 700;
-  --weight-black: 900;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: var(--color-bg);
   color: var(--color-text);
-  background-color: var(--color-bg); /* Aplicamos el beige al fondo */
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
+/* --- HEADER --- */
 .header-main {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: var(
-    --color-bg
-  ); /* Cambiado de blanco a beige para que sea uniforme */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--color-bg);
+  /* Sombra lila sutil para que se note el scroll */
+  box-shadow: 0 4px 20px rgba(190, 46, 221, 0.05); 
+  border-bottom: 1px solid rgba(190, 46, 221, 0.1);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -43,93 +38,244 @@ body {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  gap: 40px;
 }
 
-
-.logo-heart {
-  height: 45px;
-  width: auto;
-  display: block;
-  animation: heartbeat 1.5s infinite;
+.logo-heart { 
+  height: 50px; 
+  animation: heartbeat 1.5s infinite; 
+}
+.hamburger {
+    display: none; /* Por defecto oculto en PC */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    /* Eliminamos cualquier estilo de "punto" por defecto */
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-.nav-menu {
-  display: flex;
-  gap: var(--spacing-md);
-  list-style: none;
-  margin: 0;
+.hamburger span {
+    display: block;
+    width: 28px;        /* Ancho de la raya */
+    height: 3px;        /* Grosor de la raya */
+    background-color: var(--color-accent); /* Tu lila #be2edd */
+    margin: 5px 0;      /* Separación entre rayas */
+    transition: var(--transition);
+    border-radius: 2px;
+}
+.nav-menu { 
+  display: flex; 
+  gap: 30px;
+  list-style: none; 
+  margin: 0; 
   padding: 0;
+  
 }
 
 .nav-menu a {
   text-decoration: none;
   color: var(--color-primary);
   font-weight: 500;
-  transition: opacity 0.3s;
+  transition: var(--transition);
 }
 
-.nav-menu a:hover {
-  opacity: 0.7;
+.nav-menu a:hover { 
+  color: var(--color-accent); 
 }
 
+/* --- MAIN CONTAINER --- */
 main {
   margin-top: var(--header-height);
   padding: var(--spacing-lg) 20px;
-  max-width: 1200px;
+  max-width: 1100px; 
   margin-left: auto;
   margin-right: auto;
 }
 
-
-.hamburger {
-  display: none; 
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
+/* --- ESTILO RAYA LILA (DEVELOPLIX) --- */
+.resume-section {
+  margin-top: 50px;
+  border-left: 6px solid var(--color-accent);
+  padding-left: 35px;
+  margin-bottom: 60px;
 }
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: var(--color-primary);
-  border-radius: 2px;
+.resume-section h1 {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  margin-top: 0;
 }
+
+.resume-section h2, 
+.resume-section h3 {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+/* --- CONTENEDORES DE BIO (FLEXBOX) --- */
+.about-bio, .hero-home { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 40px; 
+  align-items: center; 
+}
+
+/* --- CONTROL DE TAMAÑO DE FOTOS (AQUÍ ESTÁ EL TRUCO) --- */
+
+/* 1. Foto del ABOUT (pequeña/normal) */
+.about-foto {
+  flex: 0 0 300px; /* Tamaño fijo para el CV */
+}
+.about-foto img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* --- SECCIÓN PORTADA (ESTRUCTURA VERTICAL) --- */
+#hero {
+  padding: 20px 0;
+  text-align: left; /* Alinea el texto a la izquierda, debajo de la foto */
+}
+
+.hero-home {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: flex-start; /* Alinea foto y texto a la izquierda */
+  gap: 30px; 
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px; /* Espacio entre la foto y tu nombre */
+}
+
+.hero-image img {
+  width: 100%;      /* La foto ocupa todo el ancho del bloque (800px) */
+  max-width: 700px; /* Pero le ponemos un tope para que no sea infinita */
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 10px 0;
+  color: var(--color-primary);
+}
+
+/* --- FOOTER: SUAVIZAR LA RAYA --- */
 footer {
   background-color: var(--color-primary);
-  color: var(--color-bg); 
   padding: var(--spacing-md);
   text-align: center;
+  margin-top: 80px;
+  /* La raya lila del footer con mucha menos opacidad (0.3 es el 30%) */
+  border-top: 3px solid rgba(190, 46, 221, 0.3); 
 }
 
-@keyframes heartbeat {
-  0%,
-  28%,
-  70%,
-  100% {
-    transform: scale(1);
-  }
-  14%,
-  42% {
-    transform: scale(1.1);
-  }
+footer p { 
+  color: var(--color-bg); 
+  margin: 0; 
+  font-size: 0.9rem;
+  opacity: 0.8; /* Suaviza también un poco el texto del footer */
 }
 
+/* --- TEXTOS --- */
+.about-text-bio, .hero-text { 
+  flex: 1; 
+  min-width: 320px; 
+}
 
+.tagline {
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* --- ELEMENTOS DEL CV (RESUME ITEMS) --- */
+.resume-item {
+  margin-bottom: 35px;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+
+.resume-header span {
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- BOTONES --- */
+.about-buttons { display: flex; gap: 15px; margin-top: 30px; }
+
+.btn { 
+  padding: 12px 28px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: bold; 
+  transition: var(--transition); 
+  display: inline-block;
+}
+
+.btn-primary { background-color: var(--color-accent); color: white; }
+.btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); }
+.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+/* --- FOOTER --- */
+footer {
+  background-color: var(--color-primary);
+  padding: var(--spacing-md);
+  text-align: center;
+  margin-top: 60px;
+}
+footer p { color: var(--color-bg); margin: 0; }
+
+@keyframes heartbeat { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.1); } 
+}
+
+/* --- AJUSTE MÓVIL --- */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex; /* Aparece en móvil */
+  .hero-image, .about-foto {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
+  .resume-section h1 { font-size: 2rem; }
+
+  .nav-container {
+    justify-content: space-between; /* Logo a un lado, hamburguesa al otro */
+  }
+
+  .hamburger {
+    display: block; /* Aparece la hamburguesa */
+  }
+
   .nav-menu {
-    display: none; /* Desaparece el menú de texto */
+    display: none; /* Ocultamos el menú de texto normal */
+    /* Aquí podrías añadir estilos para que el menú sea desplegable 
+       pero por ahora, con esto ya no estorba en el diseño */
   }
 }

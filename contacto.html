@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio de Jessica Mateo Full Stack Developer aprendiendo en The Bridge. Sprint1"
+      content="Portfolio de Jessica Mateo Full Stack Developer aprendiendo en The Bridge."
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
     <title>Jessica Mateo | Mi portfolio - Sprint 1</title>
     <link
       rel="icon"
@@ -16,23 +18,30 @@
     />
   </head>
   <body>
-    <nav>
-      <a href="./index.html">
-        <img
-          src="https://res.cloudinary.com/dnfweiifg/image/upload/v1773328468/logojm_ucmpa9.png"
-          alt="logo con las letras JM en azul oscuro y el fondo blanco"
-          width="100"
-        />
-      </a>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#cheatsheets">Cheatsheets</a></li>
-        <li><a href="#recursos">Recursos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-    <main>
+    <header class="header-main">
+      <nav class="nav-container">
+        <a href="./index.html" class="logo-link">
+          <img
+            src="https://res.cloudinary.com/dnfweiifg/image/upload/v1773328468/logojm_ucmpa9.png"
+            class="logo-heart"
+            alt="Logo JM"
+          />
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="about.html">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#cheatsheets">Cheatsheets</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+    <main> 
       <h1>Contacto</h1>
       <p>
         Rellena el formulario si tienes alguna propuesta de colaboración o
