@@ -3,9 +3,10 @@
 :root {
   --color-primary: #1b263b;
   --color-secondary: #415a77; 
-  --color-accent: #be2edd; /* Lila DevelopFlix */
+  --color-accent: #be2edd; 
   --color-text: #1b263b;      
-  --color-bg: #f9f7f2;
+  --color-bg: #f5f6fa;           
+  --color-header: #ffffff;      
   --header-height: 80px;
   --border-radius: 12px;
   --transition: all 0.3s ease;
@@ -15,52 +16,101 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg); 
   color: var(--color-text);
   line-height: 1.6;
   margin: 0;
+  transition: background-color 0.3s ease;
 }
 
-/* --- HEADER --- */
+/* --- MAIN CONTAINER --- */
+main {
+  margin-top: var(--header-height);
+  padding: var(--spacing-lg) 20px;
+  max-width: 1100px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+/* --- BOTONES, ANIMACIONES --- */
+
+
+.btn { 
+  padding: 12px 28px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: bold; 
+  transition: var(--transition); 
+  display: inline-block;
+}
+
+.btn-primary { background-color: var(--color-accent); color: white; }
+.btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); }
+.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+.about-buttons { display: flex; gap: 15px; margin-top: 30px; }
+
+#theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-secondary);
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+#theme-toggle:hover {
+  background: var(--color-accent);
+  color: white;
+}
+@keyframes heartbeat { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.1); } 
+}
+
+
+
 .header-main {
   position: fixed;
   top: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: var(--color-bg);
-  /* Sombra lila sutil para que se note el scroll */
+  background-color: var(--color-header); 
   box-shadow: 0 4px 20px rgba(190, 46, 221, 0.05); 
   border-bottom: 1px solid rgba(190, 46, 221, 0.1);
   z-index: 1000;
   display: flex;
   align-items: center;
+  transition: background-color 0.3s ease; 
 }
 
+
 .nav-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
 }
 
 .logo-heart { 
   height: 50px; 
   animation: heartbeat 1.5s infinite; 
 }
-.hamburger {
-    display: none; /* Por defecto oculto en PC */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    /* Eliminamos cualquier estilo de "punto" por defecto */
-    appearance: none;
-    -webkit-appearance: none;
-}
+
+/* Hamburguesa */
+
+.hamburger { 
+  display: none; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 10px; }
 
 .hamburger span {
     display: block;
@@ -90,17 +140,8 @@ body {
 .nav-menu a:hover { 
   color: var(--color-accent); 
 }
+/* --- SECCIONES (HERO, ABOUT, RESUME) --- */
 
-/* --- MAIN CONTAINER --- */
-main {
-  margin-top: var(--header-height);
-  padding: var(--spacing-lg) 20px;
-  max-width: 1100px; 
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* --- ESTILO RAYA LILA (DEVELOPLIX) --- */
 .resume-section {
   margin-top: 50px;
   border-left: 6px solid var(--color-accent);
@@ -145,7 +186,6 @@ main {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* --- SECCIÓN PORTADA (ESTRUCTURA VERTICAL) --- */
 #hero {
   padding: 20px 0;
   text-align: left; /* Alinea el texto a la izquierda, debajo de la foto */
@@ -178,24 +218,6 @@ main {
   color: var(--color-primary);
 }
 
-/* --- FOOTER: SUAVIZAR LA RAYA --- */
-footer {
-  background-color: var(--color-primary);
-  padding: var(--spacing-md);
-  text-align: center;
-  margin-top: 80px;
-  /* La raya lila del footer con mucha menos opacidad (0.3 es el 30%) */
-  border-top: 3px solid rgba(190, 46, 221, 0.3); 
-}
-
-footer p { 
-  color: var(--color-bg); 
-  margin: 0; 
-  font-size: 0.9rem;
-  opacity: 0.8; /* Suaviza también un poco el texto del footer */
-}
-
-/* --- TEXTOS --- */
 .about-text-bio, .hero-text { 
   flex: 1; 
   min-width: 320px; 
@@ -207,6 +229,7 @@ footer p {
   font-weight: 700;
   margin-bottom: 25px;
 }
+
 
 /* --- ELEMENTOS DEL CV (RESUME ITEMS) --- */
 .resume-item {
@@ -226,56 +249,180 @@ footer p {
   color: var(--color-secondary);
   font-size: 0.9rem;
 }
-
-/* --- BOTONES --- */
-.about-buttons { display: flex; gap: 15px; margin-top: 30px; }
-
-.btn { 
-  padding: 12px 28px; 
-  border-radius: 8px; 
-  text-decoration: none; 
-  font-weight: bold; 
-  transition: var(--transition); 
-  display: inline-block;
+/* --- Skill --- */
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+/* Contenedor de las tarjetas */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
-.btn-primary { background-color: var(--color-accent); color: white; }
-.btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); }
-.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+/* La tarjeta individual */
+.skill-card {
+    background: var(--bg-card, #ffffff); /* Usa tus variables si tienes */
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+/* El icono */
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+.skill-card h3 {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.skill-level {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.skill-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+}
 
 /* --- FOOTER --- */
+
 footer {
-  background-color: var(--color-primary);
+  
+  background-color: var(--color-primary); 
   padding: var(--spacing-md);
   text-align: center;
+  width: 100%;
+  border-top: 2px solid rgba(190, 46, 221, 0.2);
   margin-top: 60px;
 }
-footer p { color: var(--color-bg); margin: 0; }
 
-@keyframes heartbeat { 
-  0%, 100% { transform: scale(1); } 
-  50% { transform: scale(1.1); } 
+footer p { 
+  color: var(--color-bg); 
+  margin: 0; 
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;;
 }
 
-/* --- AJUSTE MÓVIL --- */
+/* MODO OSCURO */
+
+.dark-mode {
+  
+  --color-bg-body: #233142;      /* Fondo cuerpo un poco más claro */
+  --color-bg-nav: #1b263b;       /* Fondo header/footer azul oscuro original */
+  --color-text: #f9f7f2;
+  --color-primary: #e0e1dd;
+  --color-secondary: #778da9;
+
+}
+
+
+body.dark-mode {
+  
+  --color-bg: #233142;         
+  --color-header: #1b263b;      
+  --color-text: #f9f7f2;
+  --color-secondary: #778da9;
+}
+
+.dark-mode .header-main{
+  
+  box-shadow: 0 4px 20px rgba(190, 46, 221, 0.1); /* Sombra lila un poco más visible para destacar el header en modo oscuro */
+}
+
+.dark-mode .logo-heart {
+  
+  filter: invert(36%) sepia(85%) saturate(3015%) hue-rotate(265deg) brightness(98%) contrast(93%);
+}
+
+.dark-mode .hero-image img { 
+ border: 2px solid #a855f7;
+box-shadow: 0 0 12px rgba(168, 85, 247, 0.2); 
+}
+
+body.dark-mode footer {
+  background-color: var(--color-header); 
+  
+  border-top: 2px solid var(--color-accent);
+}
+body.dark-mode footer p {
+color: var(--color-primary);
+}
+
+
+/* --- RESPONSIVIDAD (MEDIA QUERIES) --- */
+/* --- RESPONSIVIDAD (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
   .hero-image, .about-foto {
     flex: 0 0 100%;
     max-width: 100%;
   }
+  
   .resume-section h1 { font-size: 2rem; }
 
-  .nav-container {
-    justify-content: space-between; /* Logo a un lado, hamburguesa al otro */
-  }
-
   .hamburger {
-    display: block; /* Aparece la hamburguesa */
+    display: block; /* Muestra las rayas */
+    z-index: 1001; 
+    position: relative;
   }
 
   .nav-menu {
-    display: none; /* Ocultamos el menú de texto normal */
-    /* Aquí podrías añadir estilos para que el menú sea desplegable 
-       pero por ahora, con esto ya no estorba en el diseño */
+    display: flex; 
+    flex-direction: column;
+    position: fixed; 
+    top: 0;
+    right: -100%;      /* Escondido a la derecha */
+    width: 280px;      /* Ancho de la barrita */
+    height: 100vh; 
+    background-color: var(--color-header); /* Usa el blanco o el oscuro según modo */
+    padding: 100px 30px; 
+    transition: right 0.4s ease-in-out; 
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 999;
+    gap: 0; /* Quitamos el gap para controlar el espacio con el margin de los li */
+  }
+
+  /* Cuando activamos el menú */
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu li {
+    margin: 15px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px 0;
+    color: var(--color-primary) !important; /* Forzamos el color de tus variables */
   }
 }

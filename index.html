@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio de Jessica Mateo Full Stack Developer aprendiendo en The Bridge. Sprint1" />
+    <meta name="description" content="Portfolio de Jessica Mateo Full Stack Developer aprendiendo en The Bridge." />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Jessica Mateo | Portfolio</title>
     <link rel="icon" href="https://res.cloudinary.com/dnfweiifg/image/upload/v1773307269/favicon_gqcend.ico" type="image/x-icon" />
 </head>
-<body>
-  <header id="main-header"></header>
+
+  <header class="header-main" id="main-header">
+    <button id="theme-toggle" class="btn-toggle">Modo Oscuro</button>
+    </header>
 <main>
   <section id="hero"> 
     <article class="hero-home">
@@ -31,10 +33,10 @@
     </article>
   </section>
 
-  <section id="skills" class="resume-section">
+ <section id="skills" class="resume-section">
     <h2>Skills</h2>
-    <p>Próximamente...</p>
-  </section>
+    <div id="skills-container" class="skills-grid"></div>
+</section>
 
   <section id="cheatsheets" class="resume-section">
     <h2>Cheatsheets</h2>
