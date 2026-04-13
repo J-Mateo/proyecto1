@@ -144,7 +144,7 @@ main {
 
 .resume-section {
   margin-top: 50px;
-  border-left: 6px solid var(--color-accent);
+  border-left: 3px solid var(--color-accent);
   padding-left: 35px;
   margin-bottom: 60px;
 }
@@ -212,7 +212,7 @@ main {
   border: none; 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
   transition: all 0.3s ease;
-
+}
 .hero-text h1 {
   font-size: 3rem;
   margin: 10px 0;
@@ -368,12 +368,12 @@ body.dark-mode {
 }
 
 body.dark-mode footer {
-  background-color: var(--color-header); 
-  
-  border-top: 2px solid var(--color-accent);
+
+ border-top: 2px solid rgba(168, 85, 247, 0.2); /* Un hilo de color muy fino con transparencia */
+  background-color:var(--color-bg-nav);
 }
 body.dark-mode footer p {
-color: var(--color-primary);
+color: var(--color-text);
 }
 
 
