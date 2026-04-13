@@ -205,12 +205,13 @@ main {
 }
 
 .hero-image img {
-  width: 100%;      /* La foto ocupa todo el ancho del bloque (800px) */
-  max-width: 700px; /* Pero le ponemos un tope para que no sea infinita */
+  width: 100%;      
+  max-width: 450px;
   height: auto;
   border-radius: var(--border-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
+  border: none; 
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+  transition: all 0.3s ease;
 
 .hero-text h1 {
   font-size: 3rem;
@@ -361,8 +362,9 @@ body.dark-mode {
 }
 
 .dark-mode .hero-image img { 
- border: 2px solid #a855f7;
-box-shadow: 0 0 12px rgba(168, 85, 247, 0.2); 
+  border: 2px solid rgba(168, 85, 247, 0.4); 
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+  
 }
 
 body.dark-mode footer {
