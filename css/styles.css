@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
 
 :root {
   --color-primary: #1b263b;
   --color-secondary: #415a77; 
-  --color-accent: #be2edd; 
+  --color-accent: #6366f1;      /* azul principal */
+  --color-accent-alt: #a855f7;  /* lila secundario */
   --color-text: #1b263b;      
   --color-bg: #f5f6fa;           
   --color-header: #ffffff;      
@@ -15,7 +17,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family:'Inter', sans-serif;
   background-color: var(--color-bg); 
   color: var(--color-text);
   line-height: 1.6;
@@ -34,18 +36,34 @@ main {
 /* --- BOTONES, ANIMACIONES --- */
 
 
-.btn { 
-  padding: 12px 28px; 
-  border-radius: 8px; 
-  text-decoration: none; 
-  font-weight: bold; 
-  transition: var(--transition); 
+.btn {
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
   display: inline-block;
+  letter-spacing: 0.3px;
 }
 
-.btn-primary { background-color: var(--color-accent); color: white; }
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+}
 .btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); }
-.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.btn:hover { transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-alt);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent-alt);
+  color: var(--color-accent-alt);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.15);
+}
 
 .about-buttons { display: flex; gap: 15px; margin-top: 30px; }
 
@@ -144,13 +162,13 @@ main {
 
 .resume-section {
   margin-top: 50px;
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-accent-alt);
   padding-left: 35px;
   margin-bottom: 60px;
 }
 
 .resume-section h1 {
-  color: var(--color-accent);
+  color: var(--color-accent-alt);
   text-transform: uppercase;
   font-size: 2.8rem;
   margin-bottom: 15px;
@@ -159,7 +177,7 @@ main {
 
 .resume-section h2, 
 .resume-section h3 {
-  color: var(--color-accent);
+  color: var(--color-accent-alt);
   text-transform: uppercase;
   font-size: 1.6rem;
   margin-bottom: 25px;
@@ -226,7 +244,7 @@ main {
 
 .tagline {
   font-size: 1.3rem;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   font-weight: 700;
   margin-bottom: 25px;
 }
@@ -358,7 +376,7 @@ body.dark-mode {
 
 .dark-mode .logo-heart {
   
-  filter: invert(36%) sepia(85%) saturate(3015%) hue-rotate(265deg) brightness(98%) contrast(93%);
+ filter: invert(47%) sepia(82%) saturate(1854%) hue-rotate(218deg) brightness(97%) contrast(95%);
 }
 
 .dark-mode .hero-image img { 
