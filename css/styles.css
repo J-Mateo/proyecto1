@@ -15,7 +15,9 @@
   --spacing-md: 24px;
   --spacing-lg: 48px;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family:'Inter', sans-serif;
   background-color: var(--color-bg); 
@@ -66,6 +68,59 @@ main {
 }
 
 .about-buttons { display: flex; gap: 15px; margin-top: 30px; }
+
+/* Contenedor de botones */
+.tabs-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+/* Estilo de los botones */
+.tab-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--accent-lila);
+    background: transparent;
+    color: var(--accent-lila);
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+/* Tab Activa (Lila con texto blanco) */
+.tab-btn.active {
+    background-color: var(--accent-lila);
+    color: white;
+}
+
+/* Control de paneles */
+.tab-panel {
+    display: none; /* Ocultos por defecto */
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-panel.active {
+    display: block; /* Solo se ve el activo */
+}
+
+/* Items de recursos */
+.resource-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.resource-item a {
+    color: var(--accent-azul);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 #theme-toggle {
   background: rgba(255, 255, 255, 0.1);
@@ -156,9 +211,9 @@ main {
 }
 
 .nav-menu a:hover { 
-  color: var(--color-accent); 
+  color: var(--color-accent-alt); 
 }
-/* --- SECCIONES (HERO, ABOUT, RESUME) --- */
+/* --- SECCIONES (HERO, ABOUT, RESUME, CHEATSHEETS) --- */
 
 .resume-section {
   margin-top: 50px;
@@ -167,7 +222,19 @@ main {
   margin-bottom: 60px;
 }
 
-.resume-section h1 {
+.section{
+  margin-top: 50px;
+  margin-bottom: 60px;
+  
+  
+}
+.section-intro {  
+color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+.resume-section h1, .section h1 {
   color: var(--color-accent-alt);
   text-transform: uppercase;
   font-size: 2.8rem;
@@ -176,7 +243,7 @@ main {
 }
 
 .resume-section h2, 
-.resume-section h3 {
+.resume-section h3, .section h2, .section h3{
   color: var(--color-accent-alt);
   text-transform: uppercase;
   font-size: 1.6rem;
@@ -269,13 +336,14 @@ main {
   font-size: 0.9rem;
 }
 /* --- Skill --- */
-.skill-icon {
+.skill-icon, .cheatsheet-icon {
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
 }
+
 /* Contenedor de las tarjetas */
-.skills-grid {
+.skills-grid, .cheatsheets-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
@@ -283,7 +351,7 @@ main {
 }
 
 /* La tarjeta individual */
-.skill-card {
+.skill-card, .cheatsheet-card {
     background: var(--bg-card, #ffffff); /* Usa tus variables si tienes */
     padding: 1.5rem;
     border-radius: 15px;
@@ -293,19 +361,19 @@ main {
     transition: transform 0.3s ease;
 }
 
-.skill-card:hover {
+.skill-card:hover, .cheatsheet-card:hover {
     transform: translateY(-10px);
 }
 
 /* El icono */
-.skill-icon {
+.skill-icon, .cheatsheet-icon {
     width: 50px;
     height: 50px;
     margin-bottom: 1rem;
     object-fit: contain;
 }
 
-.skill-card h3 {
+.skill-card h3, .cheatsheet-card h3 {
     margin: 0.5rem 0;
     color: #333;
     font-size: 1.2rem;
@@ -322,10 +390,10 @@ main {
     margin-bottom: 1rem;
 }
 
-.skill-description {
+.skill-description, .cheatsheet-description {
     font-size: 0.9rem;
     line-height: 1.4;
-    color: #555;
+    color: var(--color-text);
 }
 
 /* --- FOOTER --- */

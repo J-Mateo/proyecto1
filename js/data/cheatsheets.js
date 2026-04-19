@@ -6,7 +6,7 @@ export const cheatsheets = [
     },
     {
         name: "CSS3",
-        icon: "https://cdn.simpleicons.org/css3/1572B6",
+        icon: "https://img.icons8.com/color/48/css3.png",
         link: "cheatsheet-css.html"
     },
     {
