@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
-
+@import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap)');
 
 :root {
   --color-primary: #1b263b;
   --color-secondary: #415a77; 
-  --color-accent: #6366f1;      /* azul principal */
-  --color-accent-alt: #a855f7;  /* lila secundario */
+  --color-accent: #6366f1;      /* Azul principal */
+  --color-accent-alt: #a855f7;  /* Lila secundario */
   --color-text: #1b263b;      
   --color-bg: #f5f6fa;           
   --color-header: #ffffff;      
@@ -14,12 +13,13 @@
   --transition: all 0.3s ease;
   --spacing-md: 24px;
   --spacing-lg: 48px;
+  --spacing-xl: 64px;
 }
-html {
-  scroll-behavior: smooth;
-}
+
+html { scroll-behavior: smooth; }
+
 body {
-  font-family:'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--color-bg); 
   color: var(--color-text);
   line-height: 1.6;
@@ -27,7 +27,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* --- MAIN CONTAINER --- */
 main {
   margin-top: var(--header-height);
   padding: var(--spacing-lg) 20px;
@@ -35,9 +34,10 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
-/* --- BOTONES, ANIMACIONES --- */
 
-
+/* ============================================================
+  BOTONES Y ANIMACIONES
+============================================================ */
 .btn {
   padding: 14px 32px;
   border-radius: 999px;
@@ -53,13 +53,18 @@ main {
   color: white;
   border: none;
 }
-.btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); }
-.btn:hover { transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);}
 
-.btn-primary:hover {
-  background-color: var(--color-accent-alt);
+.btn-secondary {
+  border: 2px solid var(--color-accent); 
+  color: var(--color-accent);
 }
+
+.btn:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover { background-color: var(--color-accent-alt); }
 
 .btn-secondary:hover {
   border-color: var(--color-accent-alt);
@@ -69,59 +74,75 @@ main {
 
 .about-buttons { display: flex; gap: 15px; margin-top: 30px; }
 
-/* Contenedor de botones */
+@keyframes heartbeat { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.1); } 
+}
+
+/* ============================================================
+  TABS Y RECURSOS
+============================================================ */
 .tabs-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
-/* Estilo de los botones */
 .tab-btn {
-    padding: 10px 20px;
-    border: 2px solid var(--accent-lila);
-    background: transparent;
-    color: var(--accent-lila);
-    cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid var(--color-accent-alt);
+  background: transparent;
+  color: var(--color-accent-alt);
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+.tab-btn:hover {
+  background-color: var(--color-accent-alt);
+  color: white;
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.15);
 }
 
-/* Tab Activa (Lila con texto blanco) */
+
 .tab-btn.active {
-    background-color: var(--accent-lila);
-    color: white;
+  background-color: var(--color-accent-alt);
+  color: white;
 }
 
-/* Control de paneles */
 .tab-panel {
-    display: none; /* Ocultos por defecto */
-    animation: fadeIn 0.5s ease;
+  display: none;
+  animation: fadeIn 0.5s ease;
 }
 
-.tab-panel.active {
-    display: block; /* Solo se ve el activo */
-}
+.tab-panel.active { display: block; }
 
-/* Items de recursos */
 .resource-item {
-    padding: 1.5rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.resource-item:hover {
+  background-color: rgba(154, 156, 235, 0.05);
+  border-left: 3px solid var(--color-accent);
+  transition: all 0.3s ease;
 }
 
 .resource-item a {
-    color: var(--accent-azul);
-    text-decoration: none;
-    font-size: 1.2rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* ============================================================
+  BOTÓN DARKMODE
+============================================================ */
 #theme-toggle {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--color-secondary);
@@ -138,13 +159,10 @@ main {
   background: var(--color-accent);
   color: white;
 }
-@keyframes heartbeat { 
-  0%, 100% { transform: scale(1); } 
-  50% { transform: scale(1.1); } 
-}
 
-
-
+/* ============================================================
+  HEADER Y NAVEGACIÓN
+============================================================ */
 .header-main {
   position: fixed;
   top: 0;
@@ -159,48 +177,26 @@ main {
   transition: background-color 0.3s ease; 
 }
 
-
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
+  display: flex; justify-content: space-between; align-items: center;
+  width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;
 }
 
-.logo-heart { 
-  height: 50px; 
-  animation: heartbeat 1.5s infinite; 
-}
+.logo-heart { height: 50px; animation: heartbeat 1.5s infinite; }
 
-/* Hamburguesa */
-
-.hamburger { 
-  display: none; 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  padding: 10px; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 10px; }
 
 .hamburger span {
-    display: block;
-    width: 28px;        /* Ancho de la raya */
-    height: 3px;        /* Grosor de la raya */
-    background-color: var(--color-accent); /* Tu lila #be2edd */
-    margin: 5px 0;      /* Separación entre rayas */
-    transition: var(--transition);
-    border-radius: 2px;
+  display: block;
+  width: 28px; height: 3px;
+  background-color: var(--color-accent);
+  margin: 5px 0; border-radius: 2px;
+  transition: var(--transition);
 }
-.nav-menu { 
-  display: flex; 
-  gap: 30px;
-  list-style: none; 
-  margin: 0; 
-  padding: 0;
-  
+
+.nav-menu {
+  display: flex; gap: 30px; list-style: none;
+  margin: 0; padding: 0;
 }
 
 .nav-menu a {
@@ -210,11 +206,11 @@ main {
   transition: var(--transition);
 }
 
-.nav-menu a:hover { 
-  color: var(--color-accent-alt); 
-}
-/* --- SECCIONES (HERO, ABOUT, RESUME, CHEATSHEETS) --- */
+.nav-menu a:hover { color: var(--color-accent-alt); }
 
+/* ============================================================
+  SECCIONES: HERO | ABOUT | RESUME
+============================================================ */
 .resume-section {
   margin-top: 50px;
   border-left: 3px solid var(--color-accent-alt);
@@ -222,18 +218,18 @@ main {
   margin-bottom: 60px;
 }
 
-.section{
+.section {
   margin-top: 50px;
   margin-bottom: 60px;
-  
-  
 }
+
 .section-intro {  
-color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.6;
+  color: var(--color-bg)
+  font-size: 1.05rem;
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
 }
+
 .resume-section h1, .section h1 {
   color: var(--color-accent-alt);
   text-transform: uppercase;
@@ -242,72 +238,52 @@ color: var(--text-secondary);
   margin-top: 0;
 }
 
-.resume-section h2, 
-.resume-section h3, .section h2, .section h3{
+.resume-section h2, .resume-section h3,
+.section h2, .section h3 {
   color: var(--color-accent-alt);
   text-transform: uppercase;
   font-size: 1.6rem;
   margin-bottom: 25px;
 }
 
-/* --- CONTENEDORES DE BIO (FLEXBOX) --- */
+/* --- Bio & Hero --- */
 .about-bio, .hero-home { 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 40px; 
-  align-items: center; 
+  display: flex; flex-wrap: wrap;
+  gap: 40px; align-items: center; 
 }
 
-/* --- CONTROL DE TAMAÑO DE FOTOS (AQUÍ ESTÁ EL TRUCO) --- */
+.about-foto { flex: 0 0 300px; }
 
-/* 1. Foto del ABOUT (pequeña/normal) */
-.about-foto {
-  flex: 0 0 300px; /* Tamaño fijo para el CV */
-}
 .about-foto img {
-  width: 100%;
-  height: auto;
+  width: 100%; height: auto;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-#hero {
-  padding: 20px 0;
-  text-align: left; /* Alinea el texto a la izquierda, debajo de la foto */
-}
+#hero { padding: 20px 0; text-align: left; }
 
-.hero-home {
-  display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: flex-start; /* Alinea foto y texto a la izquierda */
-  gap: 30px; 
-}
+.hero-home { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
 
 .hero-image {
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 30px; /* Espacio entre la foto y tu nombre */
+  width: 100%; max-width: 700px;
+  margin-bottom: 30px;
 }
 
 .hero-image img {
-  width: 100%;      
+  width: 100%;
   max-width: 450px;
-  height: auto;
   border-radius: var(--border-radius);
-  border: none; 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
   transition: all 0.3s ease;
 }
+
 .hero-text h1 {
   font-size: 3rem;
-  margin: 10px 0;
+  margin: 0;
   color: var(--color-primary);
 }
 
-.about-text-bio, .hero-text { 
-  flex: 1; 
-  min-width: 320px; 
-}
+.about-text-bio, .hero-text { flex: 1; min-width: 320px; }
 
 .tagline {
   font-size: 1.3rem;
@@ -316,11 +292,10 @@ color: var(--text-secondary);
   margin-bottom: 25px;
 }
 
-
-/* --- ELEMENTOS DEL CV (RESUME ITEMS) --- */
-.resume-item {
-  margin-bottom: 35px;
-}
+/* ============================================================
+  RESUME ITEMS
+============================================================ */
+.resume-item { margin-bottom: 35px; }
 
 .resume-header {
   display: flex;
@@ -335,76 +310,355 @@ color: var(--text-secondary);
   color: var(--color-secondary);
   font-size: 0.9rem;
 }
-/* --- Skill --- */
+
+/* ============================================================
+  SKILLS / CHEATSHEETS EN INDEX
+============================================================ */
 .skill-icon, .cheatsheet-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
 }
 
-/* Contenedor de las tarjetas */
 .skills-grid, .cheatsheets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
-/* La tarjeta individual */
 .skill-card, .cheatsheet-card {
-    background: var(--bg-card, #ffffff); /* Usa tus variables si tienes */
-    padding: 1.5rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+  background: var(--bg-card, #ffffff);
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  color: var(--color-text);
 }
 
-.skill-card:hover, .cheatsheet-card:hover {
-    transform: translateY(-10px);
-}
-
-/* El icono */
-.skill-icon, .cheatsheet-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 1rem;
-    object-fit: contain;
-}
+.skill-card:hover, .cheatsheet-card:hover { transform: translateY(-10px); }
 
 .skill-card h3, .cheatsheet-card h3 {
-    margin: 0.5rem 0;
-    color: #333;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .skill-level {
-    display: inline-block;
-    background: #f0f0f0;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 1rem;
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 1rem;
 }
 
-.skill-description, .cheatsheet-description {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: var(--color-text);
+.skill-text, .cheatsheet-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-text);
 }
 
-/* --- FOOTER --- */
+/* ============================================================
+  CHEATSHEET.HTML — ESTILOS ESPECÍFICOS
+============================================================ */
+.cheatsheet-hero { margin-bottom: 30px; }
 
+.cheatsheet-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: var(--color-accent-alt);
+  text-align: left;
+  margin-top: 80px;
+}
+
+.cheatsheet-hero p {
+  color: var(--color-secondary);
+  max-width: 700px;
+}
+
+.cheatsheet-layout {
+  margin-top: var(--header-height);
+  padding: 30px 20px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cheatsheet-sticky-nav {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 900;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 18px 24px;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.cheatsheet-sticky-nav a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: var(--transition);
+  font-size: 0.8rem;
+}
+
+.cheatsheet-sticky-nav a:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+.cheatsheet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cheatsheet-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.02);
+  text-align: left;
+  scroll-margin-top: 180px;
+}
+
+.cheatsheet-card h2 {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.cheatsheet-card pre {
+  background: rgba(190, 46, 221, 0.05);
+  color: var(--color-text);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 3px solid var(--color-accent); 
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+.cheatsheet-card code {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.tips {
+  background: rgba(168, 85, 247, 0.05);
+  padding: 20px;
+  border-radius: 0 12px 12px 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.tips strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--color-accent-alt);
+}
+
+.tips ul { list-style: none; padding: 0; margin: 0; }
+.tips li { margin-bottom: 8px; }
+
+/* ============================================================
+  MODO OSCURO
+============================================================ */
+.dark-mode {
+  --color-bg-body: #233142;
+  --color-bg-nav: #1b263b;
+  --color-text: #f9f7f2;
+  --color-primary: #e0e1dd;
+  --color-secondary: #778da9;
+}
+
+body.dark-mode {
+  --color-bg: #233142;
+  --color-header: #1b263b;
+  --color-text: #f9f7f2;
+  --color-secondary: #778da9;
+}
+
+.dark-mode .header-main { box-shadow: 0 4px 20px rgba(190,46,221,0.1); }
+
+.dark-mode .logo-heart {
+  filter: invert(47%) sepia(82%) saturate(1854%)
+          hue-rotate(218deg) brightness(97%) contrast(95%);
+}
+
+.dark-mode .hero-image img {
+  border: 2px solid rgba(168,85,247,0.4);
+  box-shadow: 0 0 20px rgba(168,85,247,0.25);
+}
+
+.dark-mode .skill-card,
+.dark-mode .cheatsheet-card {
+  background: var(--color-header);
+  color: var(--color-text);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .skill-card h3,
+.dark-mode .cheatsheet-card h3 {
+  color: var(--color-text);
+}
+
+.dark-mode .cheatsheet-sticky-nav {
+  background-color: var(--color-header);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .cheatsheet-card h2 {
+  color: var(--color-accent-alt);
+}
+
+body.dark-mode .cheatsheet-card pre {
+  background: rgba(168,85,247,0.1);
+  border-left: 3px solid var(--color-accent-alt);
+}
+
+body.dark-mode footer {
+  border-top: 2px solid rgba(168,85,247,0.2);
+  background-color: var(--color-bg-nav);
+}
+
+body.dark-mode footer p { color: var(--color-text); }
+
+/* ============================================================
+  FORMULARIO DE CONTACTO
+============================================================ */
+form {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+form fieldset {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+form legend {
+  font-weight: 600;
+  color: var(--color-accent-alt);
+  padding: 0 8px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: #f9fafc;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.1);
+}
+
+/* Botones */
+form button {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-right: 12px;
+}
+
+form button[type="reset"] {
+  background-color: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.2);
+}
+
+form button[type="reset"]:hover {
+  border-color: var(--color-accent-alt);
+  color: var(--color-accent-alt);
+}
+
+/* Textos */
+main h1 {
+  color: var(--color-accent-alt);
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+main p {
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+}
+
+/* 🌙 Adaptación al modo oscuro */
+body.dark-mode form {
+  background: var(--color-header);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #2b374a;
+  border-color: rgba(255,255,255,0.2);
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+  FOOTER
+============================================================ */
 footer {
-  
   background-color: var(--color-primary); 
   padding: var(--spacing-md);
   text-align: center;
   width: 100%;
-  border-top: 2px solid rgba(190, 46, 221, 0.2);
+  border-top: 2px solid rgba(190,46,221,0.2);
   margin-top: 60px;
 }
 
@@ -413,92 +667,74 @@ footer p {
   margin: 0; 
   font-size: 0.9rem;
   font-weight: 300;
-  letter-spacing: 0.5px;;
+  letter-spacing: 0.5px;
 }
 
-/* MODO OSCURO */
-
-.dark-mode {
-  
-  --color-bg-body: #233142;      /* Fondo cuerpo un poco más claro */
-  --color-bg-nav: #1b263b;       /* Fondo header/footer azul oscuro original */
-  --color-text: #f9f7f2;
-  --color-primary: #e0e1dd;
-  --color-secondary: #778da9;
-
-}
-
-
-body.dark-mode {
-  
-  --color-bg: #233142;         
-  --color-header: #1b263b;      
-  --color-text: #f9f7f2;
-  --color-secondary: #778da9;
-}
-
-.dark-mode .header-main{
-  
-  box-shadow: 0 4px 20px rgba(190, 46, 221, 0.1); /* Sombra lila un poco más visible para destacar el header en modo oscuro */
-}
-
-.dark-mode .logo-heart {
-  
- filter: invert(47%) sepia(82%) saturate(1854%) hue-rotate(218deg) brightness(97%) contrast(95%);
-}
-
-.dark-mode .hero-image img { 
-  border: 2px solid rgba(168, 85, 247, 0.4); 
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
-  
-}
-
-body.dark-mode footer {
-
- border-top: 2px solid rgba(168, 85, 247, 0.2); /* Un hilo de color muy fino con transparencia */
-  background-color:var(--color-bg-nav);
-}
-body.dark-mode footer p {
-color: var(--color-text);
-}
-
-
-/* --- RESPONSIVIDAD (MEDIA QUERIES) --- */
-/* --- RESPONSIVIDAD (MEDIA QUERIES) --- */
+/* ============================================================
+  RESPONSIVIDAD
+============================================================ */
 @media (max-width: 768px) {
-  .hero-image, .about-foto {
+  .hero-text {
+  padding: 0;       
+  text-align: center;   
+  } 
+.hero-text h1,
+.hero-text .tagline {
+  text-align: center;
+}
+.about-buttons, 
+.about-buttons {
+  justify-content: center; 
+  margin-top: 25px;
+}
+.hero-home {
+  padding: 0 24px;        
+    align-items: center;     
+    text-align: center;
+    justify-content: center; 
+    margin-top: 25px;
+}
+  .hero-image {
     flex: 0 0 100%;
-    max-width: 100%;
+    max-width: 80%;
+    margin-bottom: 20px;
   }
-  
+  .about-foto {
+    flex: 0 0 70%;         
+    max-width: 300px;      
+    margin: 0 auto 24px;   
+  }
+  .about-foto img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+  }
+  .about-text-bio {
+    padding: 0 24px;
+  }       
+  .about-text-bio h3,
+  .about-text-bio h4 {
+    text-align: center;    
+  }
+  .about-buttons {
+    justify-content: center; 
+    margin-top: 25px;
+  }
   .resume-section h1 { font-size: 2rem; }
-
-  .hamburger {
-    display: block; /* Muestra las rayas */
-    z-index: 1001; 
-    position: relative;
-  }
+  .hamburger { display: block; z-index: 1001; position: relative; }
 
   .nav-menu {
-    display: flex; 
-    flex-direction: column;
-    position: fixed; 
-    top: 0;
-    right: -100%;      /* Escondido a la derecha */
-    width: 280px;      /* Ancho de la barrita */
-    height: 100vh; 
-    background-color: var(--color-header); /* Usa el blanco o el oscuro según modo */
-    padding: 100px 30px; 
-    transition: right 0.4s ease-in-out; 
+    display: flex; flex-direction: column;
+    position: fixed; top: 0; right: -100%;
+    width: 280px; height: 100vh;
+    background-color: var(--color-header);
+    padding: 100px 30px;
+    transition: right 0.4s ease-in-out;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    z-index: 999;
-    gap: 0; /* Quitamos el gap para controlar el espacio con el margin de los li */
+    z-index: 999; gap: 0;
   }
 
-  /* Cuando activamos el menú */
-  .nav-menu.active {
-    right: 0;
-  }
+  .nav-menu.active { right: 0; }
 
   .nav-menu li {
     margin: 15px 0;
@@ -511,6 +747,9 @@ color: var(--color-text);
     font-size: 1.2rem;
     display: block;
     padding: 10px 0;
-    color: var(--color-primary) !important; /* Forzamos el color de tus variables */
+    color: var(--color-primary) !important;
   }
+
+  .cheatsheet-sticky-nav { display: none; }
+  .cheatsheet-hero h1 { font-size: 2.2rem; }
 }

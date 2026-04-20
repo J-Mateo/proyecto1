@@ -1,6 +1,5 @@
-import { cheatsheets } from '../data/cheatsheets.js'; // Asegúrate que en la data se llame cheatsheets
-
-export const initCheatsheets = () => { // Añadimos la 's' para que coincida con main.js
+import { cheatsheets } from '../data/cheatsheets.js'; 
+export const initCheatsheets = () => { 
   const container = document.getElementById('cheatsheets-container');
 
   if (!container) return;
@@ -8,6 +7,8 @@ export const initCheatsheets = () => { // Añadimos la 's' para que coincida con
   container.innerHTML = '';
 
   cheatsheets.forEach(sheet => {
+ 
+    const descripcionHTML = sheet.description ? `<p>${sheet.description}</p>` : '';
     const card = document.createElement('a');
     card.href = sheet.link;
     card.className = 'cheatsheet-card';

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheatsheet - Mi Portfolio</title>
+    <link rel="stylesheet" href="./css/styles.css"> 
+</head>
+<body>
+
+  <header class="header-main" id="main-header">
+  </header>
+                
+<main class="cheatsheet-layout">
+        <aside class="cheatsheet-sidebar">
+        
+        </aside>
+   <section class="cheatsheet-hero">
+  <h1>HTML5 Cheatsheet</h1>
+  <p>Guía rápida con etiquetas, estructura y ejemplos básicos de HTML.</p>
+</section>
+
+<nav class="cheatsheet-sticky-nav">
+    <a href="#estructura">Estructura</a>
+    <a href="#meta">Meta</a>
+    <a href="#texto">Texto</a>
+    <a href="#enlaces">Enlaces</a>
+    <a href="#listas">Listas</a>
+    <a href="#multimedia">Media</a>
+    <a href="#formularios">Forms</a>
+    <a href="#semantica">Semántica</a>
+    <a href="#accesibilidad">A11y</a>
+    <a href="#practicas">Buenas prácticas</a>
+</nav>
+
+<section class="cheatsheet-content">
+
+  <article id="estructura" class="cheatsheet-card ">
+    <h2>Estructura básica</h2>
+    <p>Todo documento HTML necesita una estructura mínima.</p>
+
+    <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mi página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hola mundo&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+  </article>
+
+  <article id="meta" class="cheatsheet-card">
+  <h2>Metaetiquetas</h2>
+  <p>Etiquetas importantes para SEO, responsive y redes sociales.</p>
+
+  <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="Descripción clara"&gt;
+
+&lt;meta name="robots" content="index, follow"&gt;
+&lt;link rel="canonical" href="https://ejemplo.com/pagina"&gt;
+
+&lt;meta property="og:title" content="Título"&gt;
+&lt;meta property="og:description" content="Descripción"&gt;
+&lt;meta property="og:image" content="https://ejemplo.com/img.jpg"&gt;</code></pre>
+
+  <div class="tips">
+    <strong>Buenas prácticas</strong>
+    <ul>
+      <li>DOCTYPE siempre al principio.</li>
+      <li><code>meta charset</code> lo más arriba posible.</li>
+      <li>Usa <code>viewport</code> para responsive.</li>
+    </ul>
+  </div>
+</article>
+
+<article id="texto" class="cheatsheet-card ">
+  <h2>Encabezados y texto</h2>
+
+  <pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Sección&lt;/h2&gt;
+&lt;p&gt;Párrafo normal.&lt;/p&gt;
+
+&lt;strong&gt;Importante&lt;/strong&gt;
+&lt;em&gt;Énfasis&lt;/em&gt;
+&lt;mark&gt;Highlight&lt;/mark&gt;
+
+&lt;code&gt;console.log("inline")&lt;/code&gt;
+&lt;pre&gt;Bloque preformateado&lt;/pre&gt;</code></pre>
+
+  <div class="tips">
+    <strong>Tip</strong>
+    <ul>
+      <li>Usa un solo <code>h1</code> por página.</li>
+      <li>Mantén una jerarquía lógica: h1 → h2 → h3.</li>
+    </ul>
+  </div>
+</article>
+
+<article id="enlaces" class="cheatsheet-card ">
+  <h2>Enlaces y navegación</h2>
+
+  <pre><code>&lt;a href="https://ejemplo.com"&gt;Externo&lt;/a&gt;
+&lt;a href="/ruta"&gt;Interno&lt;/a&gt;
+&lt;a href="#seccion"&gt;Ancla&lt;/a&gt;
+
+&lt;a href="https://ejemplo.com" target="_blank" rel="noopener noreferrer"&gt;
+  Nueva pestaña segura
+&lt;/a&gt;
+
+&lt;nav aria-label="Principal"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#inicio"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+</article>
+
+<article id="listas" class="cheatsheet-card">
+  <h2>Listas</h2>
+
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Elemento&lt;/li&gt;
+  &lt;li&gt;
+    Con sublista
+    &lt;ul&gt;
+      &lt;li&gt;Subelemento&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Paso 1&lt;/li&gt;
+  &lt;li&gt;Paso 2&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Lenguaje de marcado&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+</article>
+
+<article id="multimedia" class="cheatsheet-card ">
+  <h2>Imágenes y multimedia</h2>
+
+  <pre><code>&lt;img src="img.jpg" alt="Descripción"&gt;
+
+&lt;picture&gt;
+  &lt;source srcset="img.webp" type="image/webp"&gt;
+  &lt;img src="img.jpg" alt="Fallback" loading="lazy"&gt;
+&lt;/picture&gt;
+
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+</article>
+
+<article id="formularios" class="cheatsheet-card">
+  <h2>Formularios</h2>
+
+  <pre><code>&lt;form action="/procesar" method="POST"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" required&gt;
+
+  &lt;label for="msg"&gt;Mensaje&lt;/label&gt;
+  &lt;textarea id="msg" name="msg" rows="4"&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+  <div class="tips">
+    <strong>Recuerda</strong>
+    <ul>
+      <li>Conecta siempre <code>label</code> con <code>for</code> e <code>id</code>.</li>
+      <li>Usa <code>required</code>, <code>minlength</code> y <code>pattern</code> cuando sea necesario.</li>
+    </ul>
+  </div>
+</article>
+
+<article id="semantica" class="cheatsheet-card">
+  <h2>HTML semántico</h2>
+
+  <pre><code>&lt;header&gt;...&lt;/header&gt;
+&lt;nav aria-label="Principal"&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Título&lt;/h2&gt;
+      &lt;time datetime="2024-03-15"&gt;15/03/2024&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;section&gt;...&lt;/section&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+</article>
+
+
+<article id="accesibilidad" class="cheatsheet-card">
+  <h2>Accesibilidad (A11y)</h2>
+
+  <pre><code>&lt;a href="#main"&gt;Saltar al contenido&lt;/a&gt;
+
+&lt;img src="decoracion.jpg" alt=""&gt;
+
+&lt;button aria-expanded="false" aria-controls="menu"&gt;
+  Menú
+&lt;/button&gt;
+
+&lt;div aria-live="polite"&gt;Mensajes de estado&lt;/div&gt;</code></pre>
+
+  <div class="tips">
+    <strong>Importante</strong>
+    <ul>
+      <li>Prioriza HTML semántico antes que añadir ARIA.</li>
+      <li>Usa <code>alt=""</code> en imágenes decorativas.</li>
+    </ul>
+  </div>
+</article>
+
+<article id="practicas" class="cheatsheet-card">
+  <h2>Mejores prácticas</h2>
+
+  <ul>
+    <li>HTML válido e indentación consistente.</li>
+    <li>Imágenes con <code>alt</code> descriptivo.</li>
+    <li>Links externos con <code>rel="noopener noreferrer"</code>.</li>
+    <li>Usa <code>loading="lazy"</code> en imágenes no críticas.</li>
+    <li>Comprueba tu web con Lighthouse, WAVE y Validator.</li>
+  </ul>
+</article>
+</section>
+
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

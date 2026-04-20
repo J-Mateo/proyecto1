@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Cheatsheet - Mi Portfolio</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header class="header-main" id="main-header"></header>
+
+  <main class="cheatsheet-layout">
+    <section class="cheatsheet-hero">
+      <h1>JavaScript Cheatsheet</h1>
+      <p>Guía rápida de JavaScript moderno: variables, tipos, template strings, operadores, control de flujo, funciones, arrays, strings, números, objetos, DOM, promesas, fetch, fechas y más.</p>
+    </section>
+
+    <nav class="cheatsheet-sticky-nav">
+      <a href="#variables">Variables</a>
+      <a href="#tipos">Tipos</a>
+      <a href="#templates">Template strings</a>
+      <a href="#comentarios">Comentarios</a>
+      <a href="#operadores">Operadores</a>
+      <a href="#control">Control</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#arrays">Arrays</a>
+      <a href="#strings">Strings</a>
+      <a href="#numeros">Números</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#dom">DOM</a>
+      <a href="#promesas">Promesas</a>
+      <a href="#fetch">Fetch/Async</a>
+      <a href="#fechas">Fechas</a>
+      <a href="#storage">Storage</a>
+      <a href="#objetos">Objetos/JSON</a>
+      <a href="#otros">Otros</a>
+      <a href="#resumen">Resumen</a>
+    </nav>
+
+    <section class="cheatsheet-content">
+
+      <article id="variables" class="cheatsheet-card">
+        <h2>Variables</h2>
+<pre><code>// var (EVITAR)
+var nombre = "Juan";
+var nombre = "Pedro";   // redeclarar ✅
+nombre = "Carlos";      // reasignar ✅
+
+// let (mutable, bloque)
+let edad = 30;
+edad = 35;
+
+// const (fijo, referencia estable)
+const PI = 3.1416;
+// PI = 3.15; // ❌ No permitido
+</code></pre>
+        <div class="tips">
+          <strong>Tips</strong>
+          <ul>
+            <li><code>const</code> por defecto, <code>let</code> si va a cambiar.</li>
+            <li>Evita <code>var</code>; su ámbito no es de bloque.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article id="tipos" class="cheatsheet-card">
+        <h2>Tipos de datos</h2>
+<pre><code>// Primitivos
+const texto = "JavaScript";
+const entero = 42;
+const esActivo = true;
+let indefinido;
+const vacio = null;
+const simbolo = Symbol("id");
+const grande = BigInt(1);
+
+// Complejos
+const persona = { nombre: "Ana", edad: 25 };
+const frutas = ["🍎", "🍌"];
+function saludar(n) { return `Hola ${n}`; }
+
+console.log(typeof texto); // "string"
+console.log(typeof persona); // "object"
+</code></pre>
+      </article>
+
+      <article id="templates" class="cheatsheet-card">
+        <h2>Template Strings</h2>
+<pre><code>const nombre = "Juan";
+const edad = 30;
+
+console.log(`Hola, soy ${nombre} y tengo ${edad} años.`);
+
+const precio = 100, iva = 0.21;
+console.log(`Total: ${precio * (1 + iva)}€`);
+
+const multi = `
+Línea 1
+Línea 2
+`;
+</code></pre>
+      </article>
+
+      <article id="comentarios" class="cheatsheet-card">
+        <h2>Comentarios</h2>
+<pre><code>// Una línea
+console.log("Hola");
+
+/*
+Bloque multi-línea
+*/
+
+/**
+ * @param {string} nombre
+ * @returns {string}
+ */
+function saludar(nombre) {
+  return \`Hola, ${nombre}\`;
+}
+</code></pre>
+      </article>
+
+      <article id="operadores" class="cheatsheet-card">
+        <h2>Operadores</h2>
+<pre><code>// Aritméticos
+5 + 3;
+10 - 4;
+3 * 4;
+20 / 4;
+10 % 3;
+2 ** 3;
+
+// Comparación estricta
+5 === "5"; // false
+5 !== "5"; // true
+
+// Lógicos
+true && false;
+true || false;
+!true;
+
+// Ternario
+const edad = 18;
+const acceso = edad >= 18 ? "Permitido" : "Denegado";
+
+// Nullish y optional chaining
+const nombre = null;
+console.log(nombre ?? "Anónimo");
+
+const usuario = { direccion: { ciudad: "Madrid" } };
+console.log(usuario.direccion?.ciudad);
+</code></pre>
+      </article>
+
+      <article id="control" class="cheatsheet-card">
+        <h2>Estructuras de control</h2>
+<pre><code>// for
+for (let i = 0; i < 3; i++) console.log(i);
+
+// while
+let c = 0;
+while (c < 2) c++;
+
+// if/else
+const edad = 20;
+if (edad >= 18) console.log("OK");
+else console.log("NO");
+
+// switch
+switch ("Lunes") {
+  case "Lunes": console.log("Inicio"); break;
+  default: console.log("Normal");
+}
+</code></pre>
+      </article>
+
+      <article id="funciones" class="cheatsheet-card">
+        <h2>Funciones</h2>
+<pre><code>// Declarada
+function saludar(nombre) {
+  return \`Hola, ${nombre}\`;
+}
+
+// Expresada
+const despedir = function(nombre) {
+  return \`Adiós, ${nombre}\`;
+};
+
+// Arrow
+const sumar = (a, b) => a + b;
+const multiplicar = (a, b) => {
+  const r = a * b;
+  return r;
+};
+
+// Defaults y recursivas
+function saludarPersona(nombre = "Anónimo") {
+  console.log(\`Hola, ${nombre}\`);
+}
+
+function cuentaRegresiva(n) {
+  if (n === 0) return console.log("BOOM");
+  console.log(n);
+  cuentaRegresiva(n - 1);
+}
+</code></pre>
+      </article>
+
+      <article id="arrays" class="cheatsheet-card">
+        <h2>Métodos de Array</h2>
+<pre><code>const a = [1,2,3,4,5];
+const cuadrados = a.map(n => n ** 2);
+const pares = a.filter(n => n % 2 === 0);
+const suma = a.reduce((acc, n) => acc + n, 0);
+
+a.find(n => n > 3);
+a.includes(3);
+a.concat([6,7]);
+a.join(" - ");
+a.forEach(n => console.log(n));
+</code></pre>
+        <div class="tips">
+          <strong>Consejo</strong>
+          <ul><li>Usa métodos inmutables (map, filter, reduce) siempre que sea posible.</li></ul>
+        </div>
+      </article>
+
+      <article id="strings" class="cheatsheet-card">
+        <h2>Métodos de String</h2>
+<pre><code>const texto = "JavaScript es genial";
+texto.toUpperCase();
+texto.toLowerCase();
+texto.replace("genial", "increíble");
+texto.slice(0, 10);
+texto.split(" ");
+"Hola ".repeat(3);
+</code></pre>
+      </article>
+
+      <article id="numeros" class="cheatsheet-card">
+        <h2>Métodos de Número</h2>
+<pre><code>const n = 42.5678;
+n.toFixed(2);
+Math.round(4.6);
+Math.random();
+Math.sqrt(25);
+Math.abs(-42);
+</code></pre>
+      </article>
+
+      <article id="modulos" class="cheatsheet-card">
+        <h2>Módulos (ESM)</h2>
+<pre><code>// miModulo.js
+export const saludar = nombre => \`Hola, \${nombre}\`;
+export default "Mensaje";
+
+// app.js
+import mensaje, { saludar } from "./miModulo.js";
+console.log(mensaje);
+console.log(saludar("Ana"));
+</code></pre>
+      </article>
+
+      <article id="dom" class="cheatsheet-card">
+        <h2>Manipulación del DOM</h2>
+<pre><code>const titulo = document.getElementById("titulo");
+titulo.textContent = "Nuevo título";
+titulo.classList.add("activo");
+titulo.style.color = "red";
+
+const p = document.createElement("p");
+p.textContent = "Nuevo párrafo";
+document.body.appendChild(p);
+
+const boton = document.getElementById("boton");
+boton.addEventListener("click", () => console.log("click"));
+</code></pre>
+      </article>
+
+      <article id="promesas" class="cheatsheet-card">
+        <h2>Promesas</h2>
+<pre><code>const promesa = new Promise((resolve, reject) => {
+  const ok = true;
+  ok ? resolve("✅ OK") : reject("❌ Error");
+});
+
+promesa
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => console.log("Fin"));
+</code></pre>
+      </article>
+
+      <article id="fetch" class="cheatsheet-card">
+        <h2>Fetch / Async-Await</h2>
+<pre><code>// Fetch con then
+fetch("[jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/posts/1)")
+  .then(res => res.json())
+  .then(console.log)
+  .catch(console.error);
+
+// Async / await
+async function cargar() {
+  try {
+    const res = await fetch("[pokeapi.co](https://pokeapi.co/api/v2/pokemon/1)");
+    const data = await res.json();
+    console.log(data);
+  } catch(e) { console.error(e); }
+}
+</code></pre>
+      </article>
+
+      <article id="fechas" class="cheatsheet-card">
+        <h2>Fechas (Date)</h2>
+<pre><code>const ahora = new Date();
+ahora.getFullYear();
+ahora.toLocaleDateString("es-ES");
+ahora.toLocaleTimeString("es-ES");
+
+const fecha = new Date(2025,2,15,10,30);
+fecha.toISOString();
+</code></pre>
+      </article>
+
+      <article id="storage" class="cheatsheet-card">
+        <h2>Storage (localStorage / sessionStorage)</h2>
+<pre><code>// localStorage
+localStorage.setItem("nombre", "Juan");
+const nombre = localStorage.getItem("nombre");
+localStorage.removeItem("nombre");
+
+// sessionStorage
+sessionStorage.setItem("usuario", "Ana");
+</code></pre>
+      </article>
+
+      <article id="objetos" class="cheatsheet-card">
+        <h2>Objetos y JSON</h2>
+<pre><code>const persona = { nombre: "Juan", edad: 30 };
+Object.keys(persona);
+Object.values(persona);
+Object.entries(persona);
+
+const json = JSON.stringify(persona);
+const obj = JSON.parse(json);
+</code></pre>
+      </article>
+
+      <article id="otros" class="cheatsheet-card">
+        <h2>Otros útiles</h2>
+<pre><code>// Map y Set
+const mapa = new Map();
+mapa.set("nombre", "Juan");
+
+const set = new Set([1,2,2,3]);
+set.add(4);
+
+// Expresiones regulares e Intl
+const regex = /\\d+/g;
+"Mi num 123 y 456".match(regex);
+new Intl.NumberFormat("es-ES").format(1234567.89);
+</code></pre>
+      </article>
+
+      <article id="resumen" class="cheatsheet-card">
+        <h2>Resumen</h2>
+        <ul>
+          <li><code>const</code> por defecto, <code>let</code> si cambia.</li>
+          <li>Usa <code>===</code> y <code>!==</code> siempre.</li>
+          <li>Arrays inmutables con map/filter/reduce.</li>
+          <li>DOM: <code>querySelector</code>, <code>classList</code>, <code>addEventListener</code>.</li>
+          <li>Async: <code>async/await + try/catch</code>.</li>
+          <li>Storage: localStorage, sessionStorage y cookies.</li>
+        </ul>
+      </article>
+
+    </section>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
