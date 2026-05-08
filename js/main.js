@@ -41,3 +41,4 @@ if (document.getElementById('cheatsheets-container')) {
 if (document.getElementById('tabs-buttons')) {
     initResources();
 }
+

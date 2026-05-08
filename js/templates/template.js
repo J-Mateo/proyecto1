@@ -1,7 +1,7 @@
 export const header = `
         <nav class="nav-container">
             <a href="./index.html" class="logo-link">
-                <img src="https://res.cloudinary.com/dnfweiifg/image/upload/v1773328468/logojm_ucmpa9.png" class="logo-heart" alt="Logo JM" />
+                <img src="https://res.cloudinary.com/j-mateo/image/upload/v1773328468/logojm_ucmpa9.png" class="logo-heart" alt="Logo JM" />
             </a>
             <ul class="nav-menu">
                 <li><a href="about.html">About</a></li>
