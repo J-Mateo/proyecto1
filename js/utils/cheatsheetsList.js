@@ -1,4 +1,5 @@
 import { cheatsheets } from '../data/cheatsheets.js'; 
+
 export const initCheatsheets = () => { 
   const container = document.getElementById('cheatsheets-container');
 
@@ -7,9 +8,8 @@ export const initCheatsheets = () => {
   container.innerHTML = '';
 
   cheatsheets.forEach(sheet => {
- 
-    const descripcionHTML = sheet.description ? `<p>${sheet.description}</p>` : '';
     const card = document.createElement('a');
+
     card.href = sheet.link;
     card.className = 'cheatsheet-card';
 

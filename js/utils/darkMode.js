@@ -16,14 +16,11 @@ export const inicializarModoOscuro = () => {
         }
     };
 
-    // 1. Primero vamos a buscar si hay algo guardado
     const guardado = localStorage.getItem("tema-preferido");
 
-    // 2. Ahora sí, comprobamos
     if (guardado) {
         aplicarTema(guardado === "oscuro");
     } else {
-        // 3. Si no hay nada guardado, miramos la hora (optimizada)
         const horaActual = new Date().getHours();
         const esDeNoche = horaActual >= 20 || horaActual < 8;
         aplicarTema(esDeNoche);

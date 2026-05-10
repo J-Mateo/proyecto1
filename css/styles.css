@@ -228,7 +228,7 @@ main {
   color: var(--color-secondary);
   font-size: 1.05rem;
   margin-bottom: var(--spacing-xl);
-  line-height: 1.6;;
+  line-height: 1.6;
 }
 
 .resume-section h1, .section h1 {
@@ -815,7 +815,6 @@ footer p {
   text-align: center;
   font-size: 1.1rem;
 }
-.about-buttons, 
 .about-buttons {
   justify-content: center; 
   margin-top: 25px;

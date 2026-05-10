@@ -72,7 +72,7 @@ proyecto1/
         ├── resourcesGenerator.js
         └── weather.js
 ```
-        ## Descripción de las páginas
+## Descripción de las páginas
 
 ### `index.html`
 
