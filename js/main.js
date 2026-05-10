@@ -5,6 +5,7 @@ import skillsList from './utils/skillsList.js';
 import { skills } from './data/skills.js';
 import { initCheatsheets } from './utils/cheatsheetsList.js';
 import { initResources } from './utils/resourcesGenerator.js';
+import { getWeather } from "./utils/weather.js";
 
 // 1. Inyectar el HTML de los componentes (Header y Footer)
 // Esto se ejecutará en TODAS las páginas que tengan estos IDs
@@ -41,4 +42,4 @@ if (document.getElementById('cheatsheets-container')) {
 if (document.getElementById('tabs-buttons')) {
     initResources();
 }
-
+getWeather();

@@ -14,6 +14,15 @@ export const header = `
             <span class="icon-sun">☀️</span>
             <span class="icon-moon">🌙</span>
         </button>
+
+        <div id="weather-widget" class="weather-widget">
+            <div class="weather-content">
+            <div class="weather-main">
+            <span class="weather-temp">--°C</span>
+        </div>
+            <p class="weather-city">Clima</p>
+        </div>
+        </div>    
             <button class="hamburger" id="hamburger">
     <span></span>
     <span></span>
