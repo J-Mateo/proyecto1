@@ -228,7 +228,7 @@ main {
   color: var(--color-secondary);
   font-size: 1.05rem;
   margin-bottom: var(--spacing-xl);
-  line-height: 1.6;
+  line-height: 1.6;;
 }
 
 .resume-section h1, .section h1 {
@@ -591,6 +591,15 @@ body.dark-mode {
 .dark-mode .cheatsheet-card h3,
 .dark-mode .project-card h3 {
   color: var(--color-text);
+}
+.dark-mode .project-card p {
+  color: var(--color-secondary);
+}
+
+.dark-mode .project-tags span {
+  background: rgba(168,85,247,0.12);
+  color: var(--color-text);
+  border: 1px solid rgba(168,85,247,0.25);
 }
 
 .dark-mode .cheatsheet-sticky-nav {
