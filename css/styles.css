@@ -1,4 +1,4 @@
-@import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap)');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
 
 :root {
   --color-primary: #1b263b;
@@ -762,6 +762,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: var(--color-text);
   font-size: 0.8rem;
 }
@@ -804,9 +805,15 @@ footer p {
   padding: 0;       
   text-align: center;   
   } 
-.hero-text h1,
+.hero-text h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
 .hero-text .tagline {
   text-align: center;
+  font-size: 1.1rem;
 }
 .about-buttons, 
 .about-buttons {
@@ -878,4 +885,15 @@ footer p {
 
   .cheatsheet-sticky-nav { display: none; }
   .cheatsheet-hero h1 { font-size: 2.2rem; }
+
+    .skills-grid,
+  .cheatsheets-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-card,
+  .cheatsheet-card {
+    padding: 1.4rem;
+  }
 }
